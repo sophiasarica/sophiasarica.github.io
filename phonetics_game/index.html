@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Fun Sounds Game - Learn Letter Sounds!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="/assets/index-v_YWsKS4.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🎵 Fun Sounds Game</h1>
+            <p class="subtitle">Learn letter sounds and have fun!</p>
+        </header>
+
+        <nav class="game-nav">
+            <button class="nav-btn active" data-game="letter-sounds">🔤 Letter Sounds</button>
+            <button class="nav-btn" data-game="rhyming-words">🎵 Rhyming Words</button>
+            <button class="nav-btn" data-game="beginning-sounds">🎯 Beginning Sounds</button>
+            <button class="nav-btn" data-game="word-practice">🗣️ Word Practice</button>
+        </nav>
+
+        <div class="game-container">
+            <!-- Letter Sounds Game -->
+            <div class="game-section active" id="letter-sounds">
+                <div class="game-header">
+                    <h2>🔤 Letter Sounds</h2>
+                    <div class="score-display">
+                        <span>⭐ Stars: <span id="letter-score">0</span></span>
+                        <span>🎉 Streak: <span id="letter-streak">0</span></span>
+                    </div>
+                </div>
+                <div class="game-content">
+                    <div class="question-card">
+                        <div class="letter-display" id="current-letter">A</div>
+                        <div class="letter-info">
+                            <h3 id="letter-name">Apple</h3>
+                            <p id="letter-sound">/æ/ - "ah"</p>
+                        </div>
+                    </div>
+                    <div class="options-grid" id="letter-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                    <div class="feedback" id="letter-feedback"></div>
+                </div>
+            </div>
+
+            <!-- Rhyming Words Game -->
+            <div class="game-section" id="rhyming-words">
+                <div class="game-header">
+                    <h2>🎵 Rhyming Words</h2>
+                    <div class="score-display">
+                        <span>⭐ Stars: <span id="rhyme-score">0</span></span>
+                        <span>🎉 Streak: <span id="rhyme-streak">0</span></span>
+                    </div>
+                </div>
+                <div class="game-content">
+                    <div class="audio-player">
+                        <button class="play-btn" id="play-rhyme">🔊 Play Word</button>
+                        <div class="audio-info">
+                            <p>Listen and find the word that rhymes!</p>
+                        </div>
+                    </div>
+                    <div class="options-grid" id="rhyme-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                    <div class="feedback" id="rhyme-feedback"></div>
+                </div>
+            </div>
+
+            <!-- Beginning Sounds Game -->
+            <div class="game-section" id="beginning-sounds">
+                <div class="game-header">
+                    <h2>🎯 Beginning Sounds</h2>
+                    <div class="score-display">
+                        <span>⭐ Stars: <span id="beginning-score">0</span></span>
+                        <span>🎉 Streak: <span id="beginning-streak">0</span></span>
+                    </div>
+                </div>
+                <div class="game-content">
+                    <div class="word-display">
+                        <h3 id="target-word">🐱 cat</h3>
+                        <p>What sound does this word start with?</p>
+                    </div>
+                    <div class="options-grid" id="beginning-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                    <div class="feedback" id="beginning-feedback"></div>
+                </div>
+            </div>
+
+            <!-- Word Practice Game -->
+            <div class="game-section" id="word-practice">
+                <div class="game-header">
+                    <h2>🗣️ Word Practice</h2>
+                    <div class="score-display">
+                        <span>⭐ Stars: <span id="word-score">0</span></span>
+                        <span>🎉 Streak: <span id="word-streak">0</span></span>
+                    </div>
+                </div>
+                <div class="game-content">
+                    <div class="pronunciation-card">
+                        <h3 id="practice-word">🐕 dog</h3>
+                        <div class="word-sound" id="word-sound">"dawg"</div>
+                        <button class="play-btn" id="play-word">🔊 Listen</button>
+                    </div>
+                    <div class="recording-section">
+                        <button class="record-btn" id="record-btn">🎤 Say It!</button>
+                        <div class="recording-status" id="recording-status"></div>
+                    </div>
+                    <div class="feedback" id="word-feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn" id="next-question">➡️ Next Word</button>
+            <button class="control-btn" id="reset-game">🔄 Start Over</button>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

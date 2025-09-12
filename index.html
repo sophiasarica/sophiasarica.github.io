@@ -1,1 +1,101 @@
-hello
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Personal Calendar</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="apptitle">
+      <div class="title-row">
+        <h2 id="appTitle">Personal Calendar</h2>
+        <button id="editTitleBtn" class="icon-btn" title="Edit calendar name" aria-label="Edit calendar name">✎</button>
+      </div>
+    </header>
+    <header class="topbar">
+      <div class="left">
+        <button id="prevBtn" aria-label="Previous month">&#8592;</button>
+        <button id="todayBtn" aria-label="Go to today">Today</button>
+        <button id="nextBtn" aria-label="Next month">&#8594;</button>
+      </div>
+      <h1 id="monthLabel" class="title"></h1>
+      <div class="right">
+        <button id="exportBtn">Export</button>
+        <label class="import">
+          <input id="importInput" type="file" accept="application/json" hidden />
+          <span>Import</span>
+        </label>
+      </div>
+    </header>
+
+    <section class="todo">
+      <div class="todo-header">
+        <h3>To-Do</h3>
+        <form id="todoForm" class="todo-form">
+          <input id="todoInput" type="text" placeholder="Add a task and press Enter" aria-label="Add a task" />
+          <button id="todoAddBtn" type="submit">Add</button>
+        </form>
+      </div>
+      <ul id="todoList" class="todo-list" aria-label="To-Do list"></ul>
+    </section>
+
+    <main class="calendar">
+      <div class="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div id="grid" class="grid" role="grid" aria-label="Monthly calendar"></div>
+    </main>
+
+    <dialog id="eventDialog">
+      <form method="dialog" id="eventForm">
+        <header class="dialog-header">
+          <h3 id="dialogTitle">Add Event</h3>
+          <button id="closeDialogBtn" type="button" aria-label="Close">✕</button>
+        </header>
+        <div class="dialog-body">
+          <div class="field">
+            <label>Date</label>
+            <input id="eventDate" type="date" required />
+          </div>
+          <div class="field">
+            <label>Title</label>
+            <input id="eventTitle" type="text" placeholder="Event title" required />
+          </div>
+          <div class="field">
+            <label>Description</label>
+            <textarea id="eventDesc" rows="4" placeholder="Details (optional)"></textarea>
+          </div>
+          <div class="field">
+            <label>Color</label>
+            <input id="eventColor" type="color" value="#2563eb" />
+          </div>
+        </div>
+        <footer class="dialog-footer">
+          <button id="deleteBtn" type="button" class="danger" hidden>Delete</button>
+          <div class="spacer"></div>
+          <button value="cancel" type="button" id="cancelBtn">Cancel</button>
+          <button value="default" id="saveBtn" class="primary">Save</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <template id="dayTemplate">
+      <div class="day" role="gridcell">
+        <div class="day-header">
+          <span class="date-num"></span>
+          <button class="add-btn" title="Add event">＋</button>
+        </div>
+        <div class="events"></div>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
